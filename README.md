@@ -7,7 +7,7 @@
 
 
 
-#### If you find our study useful and relevant to your research, we kindly request that you cite us. Your citations mean a lot to us and help to acknowledge our contributions.
+##### If you find our study useful and relevant to your research, we kindly request that you cite us. Your citations mean a lot to us and help to acknowledge our contributions.
 
 ## Datasets
 Raw scRNA-seq data for cell-type specific logic gate inference in the mouse haematopoiesis (Fig.3) is available at https://doi.org/10.5281/zenodo.8353409.
