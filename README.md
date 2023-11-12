@@ -16,19 +16,17 @@
 ![Fig1](https://github.com/CompBioIPM/scGATE/assets/47293318/4be29239-0cd7-4871-aa01-18268ba7bb7d)
 
 ## Step 1. scGATE installation
-<hr>
 
 
 
 <br>
 
 ## Step 2. Prepare input files
-<hr>
+
 
 <br>
 
 ## Datasets
-<hr>
 Raw scRNA-seq data for cell-type specific logic gate inference in the mouse haematopoiesis (Fig.3) is available at https://doi.org/10.5281/zenodo.8353409.
 Base grns reconstructed with scATAC-seq data and TF binding site motifs (Fig.6) are also available at https://doi.org/10.5281/zenodo.8353409.
 
