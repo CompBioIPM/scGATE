@@ -24,6 +24,13 @@
 ## Step 2. Prepare input files
 
 
+
+<br>
+
+## Step 3. Run scGATE 
+
+
+
 <br>
 
 ## Datasets
@@ -32,3 +39,4 @@ Base grns reconstructed with scATAC-seq data and TF binding site motifs (Fig.6) 
 
 
 
+<br>
