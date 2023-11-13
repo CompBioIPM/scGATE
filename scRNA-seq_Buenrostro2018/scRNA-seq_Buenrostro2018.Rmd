@@ -1,0 +1,89 @@
+---
+title: "R Notebook for extracting Highly Variable Genes (HVGs) from Buenrostro, 10X Genomics data"
+output: html_notebook
+---
+
+```{r}
+# load packages and data
+rm(list=ls())
+library(Seurat)
+library(Matrix)
+
+data              <-  as.data.frame(read.table("D:\\Buenrostro\\buenrostro_2018_scRNAseq.txt", header = TRUE, sep = "\t"))
+
+gene_names        <- data[ ,1]
+data              <- data[ ,2:ncol(data)]
+row.names(data)   <- gene_names
+data              <- as.matrix(data)
+data[1:10,1:10]
+```
+
+
+```{r}
+# Convert the dense matrix to a sparse matrix
+data              <- Matrix(data, sparse = TRUE)
+seurat_object     <- CreateSeuratObject(counts = data, min.cells = 3, min.features = 200)
+seurat_object
+
+seurat_object[["percent.mt"]] <- PercentageFeatureSet(seurat_object, pattern = "^MT-")
+
+# Visualize QC metrics as a violin plot
+VlnPlot(seurat_object, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 1)
+
+# FeatureScatter is typically used to visualize feature-feature relationships, but can be used
+# for anything calculated by the object, i.e. columns in object metadata, PC scores etc.
+FeatureScatter(seurat_object, feature1 = "nCount_RNA", feature2 = "percent.mt")
+FeatureScatter(seurat_object, feature1 = "nCount_RNA", feature2 = "nFeature_RNA")
+
+seurat_object     <- subset(seurat_object, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.mt < 5)
+seurat_object@assays$RNA@counts[1:10,1:10] 
+
+seurat_object     <- NormalizeData(seurat_object, normalization.method = "LogNormalize", scale.factor = 10000)
+seurat_object@assays$RNA@data[1:10,1:10]
+
+seurat_object     <- FindVariableFeatures(seurat_object, selection.method = "vst", nfeatures = 10000)
+
+# Identify the 10 most highly variable genes
+top10             <- head(VariableFeatures(seurat_object), 10)
+# plot variable features with and without labels
+VariableFeaturePlot(seurat_object)
+```
+
+```{r}
+all.genes         <- rownames(seurat_object)
+seurat_object     <- ScaleData(seurat_object, features = all.genes)
+
+seurat_object     <- RunPCA(seurat_object, features = VariableFeatures(object = seurat_object))
+VizDimLoadings(seurat_object, dims = 1:2, reduction = "pca")
+DimPlot(seurat_object, reduction = "pca")
+DimHeatmap(seurat_object, dims = 1, cells = 500, balanced = TRUE)
+
+seurat_object     <- FindNeighbors(seurat_object, dims = 1:10)
+seurat_object     <- FindClusters(seurat_object, resolution = 0.5)
+seurat_object     <- RunUMAP(seurat_object, dims = 1:10)
+
+DimPlot(seurat_object, reduction = "umap")
+```
+
+```{r}
+ # save count data for the grn inference with scGATE
+high_var_genes_index <- which(rownames(seurat_object@assays$RNA) %in% seurat_object@assays$RNA@var.features)
+rna_counts           <- seurat_object@assays$RNA@counts[high_var_genes_index, ]
+rna_counts[1:10, 1:10]
+
+# Get the indices of the row names in the vector
+idx                  <- match(seurat_object@assays$RNA@var.features, rownames(rna_counts))
+
+# Reorder the rows of the sparse matrix based on HVG indices
+rna_counts_reordered <- rna_counts[idx,]
+rna_counts_reordered[1:10, 1:10]
+
+saveRDS(seurat_object, file = paste0("Buenrostro_seurat_object.rds"))
+```
+
+
+
+
+
+
+
