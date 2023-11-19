@@ -14,7 +14,7 @@ Malekpour, S.A., Haghverdi, L., Sadeghi, M., Single-cell multi-omics analysis id
 ## Step 1. scGATE installation
 The scGATE codes are written in R version 4.1.3 and have been tested in both Windows and Linux environments. 
 
-Installation:
+### Installation:
 1. Download the compiled package file `scGATE_0.1.0.tar.gz` from this GitHub page.
 2. Install the scGATE package by running the following command in R:
    
@@ -23,7 +23,7 @@ Installation:
    ```
 <br>
 
-Dependencies:  
+### Dependencies:  
 Please ensure that you have the following packages installed:
 
 ```R
@@ -44,8 +44,13 @@ library(arrow)
 <br>
 
 ## Step 2. Prepare input files
-
-
+### Preprocessing base GRN generated from external hints
+To summarize information in the base GRN file in ".parquet" format, previously generated using external hints like scATAC-seq and TF binding motif analyses, you can use the `read_base_GRN()` function from the scGATE package.
+```R
+# Read and summarize base GRN file
+candidate_tf_target <- as.data.frame(read_parquet("res_Buenrostro2018_base_GRN_dataframe.parquet"))
+candidate_tf_target <- read_base_GRN(candidate_tf_target)
+```
 
 <br>
 
