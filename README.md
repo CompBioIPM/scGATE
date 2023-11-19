@@ -1,9 +1,10 @@
 ## Single-cell multi-omics analysis identifies context specific gene regulatory gates and mechanisms
 1. Seyed Amir Malekpour, 2. Laleh Haghverdi, and 3. Mehdi Sadeghi
-   
+<br>  
 1 School of Biological Sciences, Institute for Research in Fundamental Sciences (IPM), 19395-5746, Tehran, Iran.,
 2 Berlin Institute for Medical Systems Biology, Max Delbrück Center (BIMSB-MDC) in the Helmholtz Association, Berlin, Germany.,
 3 Department of Medical Genetics, National Institute for Genetic Engineering and Biotechnology, 1497716316, Tehran, Iran.
+<br>
 <br>
 We propose scGATE (single-cell gene regulatory gate) as a logic-based model for deciphering tissue- and cell-type-specific gene regulatory networks from single-cell RNA sequencing (scRNA-seq). While previous efforts have focused on reconstructing directed transcription factor (TF) to target gene networks, logic-based models enable the exploration of more complex combinatorial relationships between regulators. In particular, Boolean logic models can capture higher-order TF interactions, represented through AND, OR, and XOR logic gates. Our novel approach infers TF-gene networks from scRNA-seq data while simultaneously elucidating the underlying Boolean logic that combines TF activities.
 
