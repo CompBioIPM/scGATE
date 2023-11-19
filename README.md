@@ -46,18 +46,19 @@ library(arrow)
 ## Step 2. Prepare input files
 ### Preprocessing base GRN generated from external hints
 To summarize information in the base GRN file in ".parquet" format, previously generated using external hints like scATAC-seq and TF binding motif analyses, you can use the `read_base_GRN()` function from the scGATE package.
+
 ```R
 # Read and summarize base GRN file
 candidate_tf_target <- as.data.frame(read_parquet("res_Buenrostro2018_base_GRN_dataframe.parquet"))
 candidate_tf_target <- read_base_GRN(candidate_tf_target)
 ```
 
-<br>
 ### Preprocessing scRNA-seq count data
 To preprocess raw scRNA-seq data, including steps such as normalization and rescaling, you can use the scRNA_seq_preprocessing() function from the scGATE package.
 
-# Preprocess scRNA-seq count data
+```R
 normalized_counts <- scRNA_seq_preprocessing(data = data_scRNA_seq, library_size_normalization = "True", tf_list = NA)
+```
 
 Parameter Descriptions
 data: The scRNA-seq raw data matrix with cells in rows and genes in columns.  
