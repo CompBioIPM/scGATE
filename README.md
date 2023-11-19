@@ -14,7 +14,7 @@ Malekpour, S.A., Haghverdi, L., Sadeghi, M., Single-cell multi-omics analysis id
 ## Step 1. scGATE installation
 The scGATE codes are written in R version 4.1.3 and have been tested in both Windows and Linux environments. 
 
-#### Installation:
+### Installation:
 1. Download the compiled package file `scGATE_0.1.0.tar.gz` from this GitHub page.
 2. Install the scGATE package by running the following command in R:
    
@@ -23,7 +23,7 @@ The scGATE codes are written in R version 4.1.3 and have been tested in both Win
    ```
 <br>
 
-#### Dependencies:  
+### Dependencies:  
 Please ensure that you have the following packages installed:
 
 ```R
@@ -51,6 +51,18 @@ To summarize information in the base GRN file in ".parquet" format, previously g
 candidate_tf_target <- as.data.frame(read_parquet("res_Buenrostro2018_base_GRN_dataframe.parquet"))
 candidate_tf_target <- read_base_GRN(candidate_tf_target)
 ```
+
+<br>
+### Preprocessing scRNA-seq count data
+To preprocess raw scRNA-seq data, including steps such as normalization and rescaling, you can use the scRNA_seq_preprocessing() function from the scGATE package.
+
+# Preprocess scRNA-seq count data
+normalized_counts <- scRNA_seq_preprocessing(data = data_scRNA_seq, library_size_normalization = "True", tf_list = NA)
+
+Parameter Descriptions
+data: The scRNA-seq raw data matrix with cells in rows and genes in columns.  
+library_size_normalization: A flag indicating whether library size normalization should be performed. The default value is "True". Set it to "True" if you want to perform library size normalization.  
+tf_list: A list of transcription factors (TFs) to consider. The default value is NA, which means all columns in the data matrix will be considered as TFs.  
 
 <br>
 
