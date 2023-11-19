@@ -16,7 +16,9 @@ The scGATE codes are written in R version 4.1.3 and have been tested in both Win
 <br>
 
 install.packages("VGAM")
+
 install.packages("truncnorm")
+
 These commands will install the VGAM and truncnorm packages, which are required for running scGATE.
 
 
