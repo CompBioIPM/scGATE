@@ -12,24 +12,33 @@ Malekpour, S.A., Haghverdi, L., Sadeghi, M., Single-cell multi-omics analysis id
 ![Fig1](https://github.com/CompBioIPM/scGATE/assets/47293318/4be29239-0cd7-4871-aa01-18268ba7bb7d)
 
 ## Step 1. scGATE installation
-The scGATE codes are written in R version 4.1.3 and have been tested in both Windows and Linux environments. To install the scGATE package, please download the compiled package file scGATE_0.1.0.tar.gz from this GitHub page and install it. Additionally, ensure that you have the following dependencies installed:
+The scGATE codes are written in R version 4.1.3 and have been tested in both Windows and Linux environments. 
+
+Installation:
+1. Download the compiled package file `scGATE_0.1.0.tar.gz` from this GitHub page.
+2. Install the scGATE package by running the following command in R:
+   
+   ```R
+   install.packages("path/to/scGATE_0.1.0.tar.gz", repos = NULL, type = "source")
+   ```
 <br>
 
+Dependencies:
+Please ensure that you have the following packages installed:
+
+```R
 install.packages("VGAM")  
 install.packages("truncnorm")
 install.packages("arrow")
+```
+These commands will install the VGAM, truncnorm, and arrow packages, which are required for running scGATE.  
 
-These commands will install the VGAM, truncnorm, and arrow packages, which are required for running scGATE.
-
-load packages:
+To load the packages, use the following commands:  
+```R
 library(scGATE)  
 library(VGAM)  
 library(truncnorm)  
-library(arrow)  
-
-```R
-This is an R code block
-print("Hello, world!")
+library(arrow) 
 ```
 
 <br>
