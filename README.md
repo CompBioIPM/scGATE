@@ -57,6 +57,7 @@ candidate_tf_target <- read_base_GRN(candidate_tf_target)
 To preprocess raw scRNA-seq data, including steps such as normalization and rescaling, you can use the scRNA_seq_preprocessing() function from the scGATE package.
 
 ```R
+# Preprocess scRNA-seq count data
 normalized_counts <- scRNA_seq_preprocessing(data = data_scRNA_seq, library_size_normalization = "True", tf_list = NA)
 ```
 
