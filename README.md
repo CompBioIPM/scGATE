@@ -69,7 +69,7 @@ tf_list: A list of transcription factors (TFs) to consider. The default value is
 <br>
 
 ## Step 3. Run scGATE 
-scGATE is a package that provides two functions for TF-target network inference: `scGATE_edge()` and `scGATE_gate()`. These functions infer the TF-target network without and with predicted Boolean logic gates, respectively.
+scGATE provides two functions for TF-target network inference: `scGATE_edge()` and `scGATE_gate()`. These functions infer the TF-target network without and with predicted Boolean logic gates, respectively.
 <br>
 ### TF-Target Network Inference without Logic Gates
 To infer the TF-target network without logic gates, you can use the `scGATE_edge()` function.
