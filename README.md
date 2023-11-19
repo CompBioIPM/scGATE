@@ -15,7 +15,7 @@ Malekpour, S.A., Haghverdi, L., Sadeghi, M., Single-cell multi-omics analysis id
 The scGATE codes are written in R version 4.1.3 and have been tested in both Windows and Linux environments. To install the scGATE package, please download the compiled package file scGATE_0.1.0.tar.gz from this GitHub page and install it. Additionally, ensure that you have the following dependencies installed:
 <br>
 
-install.packages("VGAM")
+install.packages("VGAM")  
 install.packages("truncnorm")
 
 These commands will install the VGAM and truncnorm packages, which are required for running scGATE.
