@@ -19,8 +19,6 @@ install.packages("VGAM")
 install.packages("truncnorm")
 
 These commands will install the VGAM and truncnorm packages, which are required for running scGATE.
-
-
 <br>
 
 ## Step 2. Prepare input files
