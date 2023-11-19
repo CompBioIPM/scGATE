@@ -17,8 +17,22 @@ The scGATE codes are written in R version 4.1.3 and have been tested in both Win
 
 install.packages("VGAM")  
 install.packages("truncnorm")
+install.packages("arrow")
 
-These commands will install the VGAM and truncnorm packages, which are required for running scGATE.
+These commands will install the VGAM, truncnorm, and arrow packages, which are required for running scGATE.
+
+load packages:
+library(scGATE)  
+library(VGAM)  
+library(truncnorm)  
+library(arrow)  
+
+```R
+
+This is an R code block
+print("Hello, world!")
+```
+
 <br>
 
 ## Step 2. Prepare input files
