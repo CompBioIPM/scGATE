@@ -69,13 +69,13 @@ tf_list: A list of transcription factors (TFs) to consider. The default value is
 <br>
 
 ## Step 3. Run scGATE 
-scGATE provides two functions for TF-target network inference: `scGATE_edge()` and `scGATE_gate()`. These functions infer the TF-target network without and with predicted Boolean logic gates, respectively.
+scGATE provides two functions for TF-target network inference: `scGATE_edge()` and `scGATE_gate()`. These functions infer the TF-target network without and with predicted Boolean logic gates in the output, respectively.
 <br>
-### TF-Target Network Inference without Logic Gates
-To infer the TF-target network without logic gates, you can use the `scGATE_edge()` function.
+### TF-Target Network Inference (edge mode)
+To infer the TF-target network without logic gates in the output, you can use the `scGATE_edge()` function.
 
 ```R
-# Infer TF-target network without logic gates
+# Infer TF-target network without logic gates in the output
 res <- scGATE_edge(n_counts = normalized_counts, base_GRN = candidate_tf_target, k_act = 0.7, h_act = 10, number_of_em_iterations = 3, max_num_regulators = 3, abs_cor = 0)
 print(res$ranked_edge_list)
 ```
