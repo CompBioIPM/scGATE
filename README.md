@@ -14,7 +14,7 @@ Malekpour, S.A., Haghverdi, L., Sadeghi, M., Single-cell multi-omics analysis id
 ## Step 1. scGATE installation
 The scGATE codes are written in R version 4.1.3 and have been tested in both Windows and Linux environments. 
 
-### Installation:
+#### Installation:
 1. Download the compiled package file `scGATE_0.1.0.tar.gz` from this GitHub page.
 2. Install the scGATE package by running the following command in R:
    
@@ -23,7 +23,7 @@ The scGATE codes are written in R version 4.1.3 and have been tested in both Win
    ```
 <br>
 
-### Dependencies:  
+#### Dependencies:  
 Please ensure that you have the following packages installed:
 
 ```R
