@@ -2,3 +2,4 @@
 1- Run "count_reads_peaks.sh" to derive read counts
 2- Run R notebook '1.scATAC-seq Cicero.Rmd' for peaks coaccessibility calculation
 3- Run Python notebooks for TSS annotation and scanning for TF binding motifs
+ 
