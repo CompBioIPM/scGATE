@@ -23,7 +23,7 @@ Installation:
    ```
 <br>
 
-Dependencies:
+Dependencies:  
 Please ensure that you have the following packages installed:
 
 ```R
