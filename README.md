@@ -28,7 +28,6 @@ library(truncnorm)
 library(arrow)  
 
 ```R
-
 This is an R code block
 print("Hello, world!")
 ```
