@@ -90,8 +90,7 @@ number_of_em_iterations:  Number of EM iterations.
 max_num_regulators: Maximum number of TFs in a logic gate that can regulate the target gene profile.  
 abs_cor:     Threshold for the absolute correlation values. TF-gene interactions with an absolute Pearson correlation lower than this threshold will be filtered out from the analysis. The default value is 0.  
 top_gates:   The number of top Boolean logic gates to be reported for each target gene, based on Bayes Factor.  
-run_mode:    Use "simple" for a faster algorithm run and "complex" for more precise results that take more time. The argument is relevant to the possible complexities in the hill function parameter space for regulatory TFs and target genes.  
-<sub>
+run_mode:    Use "simple" for a faster algorithm run and "complex" for more precise results that take more time. The argument is relevant to the possible complexities in the hill function parameter space for regulatory TFs and target genes.<sub>
 
 <br>
 
