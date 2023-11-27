@@ -69,8 +69,32 @@ tf_list: A list of transcription factors (TFs) to consider. The default value is
 <br>
 
 ## Step 3. Run scGATE 
-scGATE provides two functions for TF-target network inference: `scGATE_edge()` and `scGATE_gate()`. These functions infer the TF-target network without and with predicted Boolean logic gates in the output, respectively.
+scGATE provides two functions for TF-target network inference: `scGATE_gate()` and `scGATE_edge()`. These functions infer the TF-target network with and without predicted Boolean logic gates in the output, respectively.
+The scGATE_gate() function in the scGATE package is more suitable for small networks or when the base gene regulatory network (GRN) is available from external sources such as scATAC-seq and TF motif data.
+
 <br>
+### TF-Target Network Inference (gate mode)
+To infer the TF-target network with logic gates in the output, you can use the `scGATE_gate()` function.
+
+```R
+# Infer TF-target network without logic gates in the output
+gates <- scGATE_logic(data = data, base_GRN = NA, h_set = NA, number_of_em_iterations = NA, max_num_regulators = NA, abs_cor = NA, top_gates = NA, run_mode = NA)
+print(head(gates))
+```
+
+Parameter Descriptions 
+data:         A gene expression matrix with normalized counts within the (0,1) interval, where samples are represented as rows and genes as columns. The gene expression matrix should have been preprocessed using the scRNA_seq_preprocessing() function.
+base_GRN:     Base TF-gene interaction network derived from external hints (e.g., scATAC-seq data and TF binding site motifs on DNA).
+h_set:        The range of possible values for the "h" parameter in the Hill climbing function.
+number_of_em_iterations:  Number of EM iterations.
+max_num_regulators: Maximum number of TFs in a logic gate that can regulate the target gene profile.
+abs_cor:     Threshold for the absolute correlation values. TF-gene interactions with an absolute Pearson correlation lower than this threshold will be filtered out from the analysis. The default value is 0.
+top_gates    The number of top Boolean logic gates to be reported for each target gene, based on Bayes Factor.
+run_mode     Use "simple" for a faster algorithm run and "complex" for more precise results that take more time. The argument is relevant to the possible complexities in the hill function parameter space for regulatory TFs and target genes.
+
+
+<br>
+
 ### TF-Target Network Inference (edge mode)
 To infer the TF-target network without logic gates in the output, you can use the `scGATE_edge()` function.
 
