@@ -129,7 +129,6 @@ data$n_counts<- data$n_counts[ , which(sqrt(apply(data$n_counts,2,var))> 0.20)]
 # Please note that the likelihood values can be affected by the Louvain clustering results.
 gates        <- scGATE_logic(data = data, number_of_em_iterations = 5, max_num_regulators = 3, abs_cor = 0.05, top_gates = 1, run_mode = "fast")
 print(head(gates))
-   gene_name -log10 L0 -log10 L1 log10 BF logic_gate
   gene_name -log10 L0 -log10 L1 log10 BF logic_gate
 1        gE     173.9   -278.87   452.76        ~gF
 2       gE1      59.2    -275.1   334.30    gE.~gE2
