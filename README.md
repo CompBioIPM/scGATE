@@ -61,7 +61,7 @@ To preprocess raw scRNA-seq data, including steps such as normalization and resc
 normalized_counts <- scRNA_seq_preprocessing(data = data_scRNA_seq, library_size_normalization = "True", tf_list = NA)
 ```
 
-Parameter Descriptions  
+Parameter Descriptions    
 data: The scRNA-seq raw data matrix with cells in rows and genes in columns.  
 library_size_normalization: A flag indicating whether library size normalization should be performed. The default value is "True". Set it to "True" if you want to perform library size normalization.  
 tf_list: A list of transcription factors (TFs) to consider. The default value is NA, which means all columns in the data matrix will be considered as TFs.  
@@ -82,7 +82,7 @@ gates <- scGATE_logic(data = data, base_GRN = NA, h_set = NA, number_of_em_itera
 print(head(gates))
 ```
 
-Parameter Descriptions 
+<sub>Parameter Descriptions 
 data:         A gene expression matrix with normalized counts within the (0,1) interval, where samples are represented as rows and genes as columns. The gene expression matrix should have been preprocessed using the scRNA_seq_preprocessing() function.  
 base_GRN:     Base TF-gene interaction network derived from external hints (e.g., scATAC-seq data and TF binding site motifs on DNA).  
 h_set:        The range of possible values for the "h" parameter in the Hill climbing function.  
@@ -91,7 +91,7 @@ max_num_regulators: Maximum number of TFs in a logic gate that can regulate the 
 abs_cor:     Threshold for the absolute correlation values. TF-gene interactions with an absolute Pearson correlation lower than this threshold will be filtered out from the analysis. The default value is 0.  
 top_gates    The number of top Boolean logic gates to be reported for each target gene, based on Bayes Factor.  
 run_mode     Use "simple" for a faster algorithm run and "complex" for more precise results that take more time. The argument is relevant to the possible complexities in the hill function parameter space for regulatory TFs and target genes.  
-
+<sub>
 
 <br>
 
