@@ -130,12 +130,13 @@ data$n_counts<- data$n_counts[ , which(sqrt(apply(data$n_counts,2,var))> 0.20)]
 gates        <- scGATE_logic(data = data, number_of_em_iterations = 5, max_num_regulators = 3, abs_cor = 0.05, top_gates = 1, run_mode = "fast")
 print(head(gates))
    gene_name -log10 L0 -log10 L1 log10 BF logic_gate
-4         gE     173.9   -278.87   452.76        ~gF
-41       gE1      59.2    -275.1   334.30    gE.~gE2
-42       gE2     41.52   -277.04   318.56    gE.~gE1
-3         gF    170.38   -288.46   458.84        ~gE
-6        gF1     80.36   -262.54   342.90    gF.~gF2
-61       gF2      67.6   -264.85   332.45    gF.~gF1
+  gene_name -log10 L0 -log10 L1 log10 BF logic_gate
+1        gE     173.9   -278.87   452.76        ~gF
+2       gE1      59.2    -275.1   334.30    gE.~gE2
+3       gE2     41.52   -277.04   318.56    gE.~gE1
+4        gF    170.38   -288.46   458.84        ~gE
+5       gF1     80.36   -262.54   342.90    gF.~gF2
+6       gF2      67.6   -264.85   332.45    gF.~gF1
 ```
 
 
