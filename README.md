@@ -70,9 +70,8 @@ tf_list: A list of transcription factors (TFs) to consider. The default value is
 
 ## Step 3. Run scGATE 
 scGATE provides two functions for TF-target network inference: `scGATE_gate()` and `scGATE_edge()`. These functions infer the TF-target network with and without predicted Boolean logic gates in the output, respectively.
-The scGATE_gate() function in the scGATE package is more suitable for small networks or when the base gene regulatory network (GRN) is available from external sources such as scATAC-seq and TF motif data.
+The scGATE_gate() function in the scGATE package is more suitable for small networks or when the base gene regulatory network (GRN) is available from external sources such as scATAC-seq and TF motif data.  
 
-<br>
 
 ### TF-Target Network Inference (gate mode)
 To infer the TF-target network with logic gates in the output, you can use the `scGATE_gate()` function.
