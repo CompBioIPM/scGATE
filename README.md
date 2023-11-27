@@ -126,7 +126,7 @@ data$n_counts<- data$n_counts[ , which(sqrt(apply(data$n_counts,2,var))> 0.20)]
 
 ```R
 # 5. Run scGATE_logic() function
-# Please note that the likelihood values can be affected by the tSNE clustering results.
+# Please note that the likelihood values can be affected by the Louvain clustering results.
 gates        <- scGATE_logic(data = data, number_of_em_iterations = 5, max_num_regulators = 3, abs_cor = 0.05, top_gates = 1, run_mode = "fast")
 print(head(gates))
    gene_name -log10 L0 -log10 L1 log10 BF logic_gate
