@@ -102,13 +102,13 @@ res <- scGATE_edge(n_counts = normalized_counts, base_GRN = candidate_tf_target,
 print(res$ranked_edge_list)
 ```
 
-Parameter Descriptions  
+<sub>Parameter Descriptions  
 n_counts: The normalized and scaled scRNA-seq count data from the previous preprocessing step.  
 base_GRN: The TF-target gene network inferred from previous steps using external hints. Leave it empty if no base GRN is available.  
 k_act and h_act: Hill function parameters used in the inference process.  
 number_of_em_iterations: The number of iterations in the expectation-maximization (EM) algorithm.  
 max_num_regulators: The maximum number of TFs in a Boolean logic gate. In the main manuscript, a value of 3 is used.  
-abs_cor: This parameter varies in the (0, 1) interval and further removes edges with low absolute Pearson correlations between TFs and their targets. A value of 0 indicates no filtration based on correlations.  
+abs_cor: This parameter varies in the (0, 1) interval and further removes edges with low absolute Pearson correlations between TFs and their targets. A value of 0 indicates no filtration based on correlations.<sub>  
 
 <br>
 
