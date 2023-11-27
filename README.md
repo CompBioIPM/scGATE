@@ -160,6 +160,10 @@ print(head(gates))
 6       gF2      67.6   -264.85   332.45    gF.~gF1
 ```
 
+<br>
+
+### II. Context specific network inference in human haematopoiesis scRNA-seq dataset
+
 
 <br>
 
