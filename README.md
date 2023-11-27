@@ -81,8 +81,7 @@ To infer the TF-target network with logic gates in the output, you can use the `
 gates <- scGATE_logic(data = data, base_GRN = NA, h_set = NA, number_of_em_iterations = NA, max_num_regulators = NA, abs_cor = NA, top_gates = NA, run_mode = NA)
 print(head(gates))
 ```
-<sub>
-Parameter Descriptions 
+<sub>Parameter Descriptions   
 data:         A gene expression matrix with normalized counts within the (0,1) interval, where samples are represented as rows and genes as columns. The gene expression matrix should have been preprocessed using the scRNA_seq_preprocessing() function.  
 base_GRN:     Base TF-gene interaction network derived from external hints (e.g., scATAC-seq data and TF binding site motifs on DNA).  
 h_set:        The range of possible values for the "h" parameter in the Hill climbing function.  
