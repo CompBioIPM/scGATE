@@ -220,6 +220,15 @@ print(head(ranked_edge_list))
 
 ### III. Context specific network inference in human haematopoiesis scRNA-seq dataset
 
+```R
+# 1. Please refer to the Jupyter notebook for instructions on how to perform scATAC-seq analysis to derive the candidate TF lists (base GRNs) in *.parquet file format.
+# 2. Load scGATE package and data (base GRN and scRNA-seq data and TF list) in example_data folder 
+
+rm(list=ls())
+library(scGATE)
+# Load base GRN derived from external hints
+
+```
 
 <br>
 
