@@ -227,7 +227,30 @@ print(head(ranked_edge_list))
 rm(list=ls())
 library(scGATE)
 # Load base GRN derived from external hints
+candidate_tf_target <- as.data.frame(read_parquet("D:\\scGATE_files\\example_data\\Buenrostro2018_base_GRN_dataframe.parquet"))
+candidate_tf_target <- read_base_GRN(candidate_tf_target)
 
+# Load scRNA-seq data
+data           <- as.data.frame(read.csv(paste0("D:\\scGATE_files\\example_data\\Buenrostro2018_ExpressionData.csv") , header = TRUE))
+gene_names     <- data[ ,1]
+data           <- t(data[ ,2:ncol(data)])
+colnames(data) <- gene_names
+
+head(data[ , 1:10])
+      IRF8 FOS MAFF SPI1 JUNB SPIB IRF7 TFDP1 GATA1 RAD21
+hsc_1    0   2    0    0    2    0    0     0     0     1
+hsc_2    0   6    7    0    3    0    0     0     0     1
+hsc_3    0   2    0    0    5    0    0     0     0     2
+hsc_4    0   6    0    0    1    0    0     1     0     1
+hsc_5    0   1    5    2    1    0    0     0     0     0
+hsc_6    0   3    0    0    1    0    0     0     0     0
+
+# Load TF list
+# This step is optional
+tf_names       <- unlist(read.table("D:\\scGATE_files\\example_data\\Buenrostro2018_tf_lists.txt"))
+print(head(tf_names))
+    V1     V2     V3     V4     V5     V6 
+"IRF8"  "FOS" "MAFF" "SPI1" "JUNB" "SPIB" 
 ```
 
 <br>
