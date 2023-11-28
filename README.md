@@ -258,7 +258,11 @@ print(head(tf_names))
 data           <- scRNA_seq_preprocessing(data = data, library_size_normalization = "True", tf_list = tf_names)
 ```
 
-
+```R
+# 4. Run scGATE_edge() function
+ranked_edge_list <-  scGATE_edge(data = data, base_GRN = candidate_tf_target, h_act = 7)
+print(head(ranked_edge_list))
+```
 
 <br>
 
