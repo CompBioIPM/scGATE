@@ -162,7 +162,63 @@ print(head(gates))
 
 <br>
 
-### II. Context specific network inference in human haematopoiesis scRNA-seq dataset
+### II. Context specific network inference in mouse scRNA-seq datasets
+
+```R
+# 1. Please refer to the Jupyter notebook for instructions on how to perform scATAC-seq analysis to derive the candidate TF lists (base GRNs) in *.parquet file format.
+# 2. Load scGATE package and data (base GRN file, scRNA-seq data and TF list) in example_data folder 
+
+rm(list=ls())
+library(scGATE)
+# Load base GRN derived from external hints
+candidate_tf_target <- as.data.frame(read_parquet("D:\\scGATE_files\\example_data\\Cusanovich2018_Spleen_peak_base_GRN_dataframe.parquet"))
+candidate_tf_target <- read_base_GRN(candidate_tf_target)
+
+# Load scRNA-seq data
+data           <- as.data.frame(read.csv(paste0("D:\\scGATE_files\\example_data\\Tabula_Muris2018_Spleen-10X_P4_7_ExpressionData.csv") , header = TRUE))
+gene_names     <- data[ ,1]
+data           <- t(data[ ,2:ncol(data)])
+colnames(data) <- gene_names
+
+head(data[ , 1:10])
+                   Batf Stat5b Ctcf H2-Eb1 AW112010 Ly6d Rplp0 Id2 Dok2 Gimap3
+AAACCTGAGAAGGACA.1    0      0    0     18        0    0    10   0    0      0
+AAACCTGAGCTAAGAT.1    0      0    1      0       19    0     5   1    1      1
+AAACCTGCAACAACCT.1    0      0    0     22        0    5    12   0    0      2
+AAACCTGCAGCCAATT.1    0      0    0     14        1    5    21   0    0      1
+AAACCTGCAGCTCCGA.1    0      0    1     30        1    2    64   0    0      0
+AAACCTGTCAGGTAAA.1    0      0    0     23        3    8    24   0    0      0
+
+
+# Load TF list
+# This step is optional
+tf_names       <- unlist(read.table("D:\\scGATE_files\\example_data\\Tabula_Muris2018_Spleen-10X_P4_7_tf_lists.txt"))
+print(head(tf_names))
+      V1       V2       V3 
+  "Batf" "Stat5b"   "Ctcf"
+```
+
+```R
+# 3. scRNA-seq data preprocessing (library size normalization, quantile normalization technique to fit within the (0,1) interval) 
+data           <- scRNA_seq_preprocessing(data = data, library_size_normalization = "True", tf_list = tf_names)
+```
+
+```R
+# 4. Run scGATE_edge() function
+ranked_edge_list <-  scGATE_edge(data = data, base_GRN = candidate_tf_target, h_act = 7)
+print(head(ranked_edge_list))
+    from    to BF_score
+1   Ctcf Rps19 2013.587
+2   Batf Rps19 2012.551
+3 Stat5b Rplp0 1850.334
+4   Ctcf Rplp0 1849.896
+5   Ctcf Rpl36 1649.263
+6   Ctcf Eif5a 1559.044
+```
+
+<br>
+
+### III. Context specific network inference in human haematopoiesis scRNA-seq dataset
 
 
 <br>
