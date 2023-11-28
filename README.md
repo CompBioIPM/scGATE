@@ -253,6 +253,13 @@ print(head(tf_names))
 "IRF8"  "FOS" "MAFF" "SPI1" "JUNB" "SPIB" 
 ```
 
+```R
+# 3. scRNA-seq data preprocessing (library size normalization, quantile normalization technique to fit the scRNA-seq data within the (0,1) interval)
+data           <- scRNA_seq_preprocessing(data = data, library_size_normalization = "True", tf_list = tf_names)
+```
+
+
+
 <br>
 
 ## Datasets
