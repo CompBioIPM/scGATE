@@ -136,7 +136,7 @@ print(head(data))
 ```R
 # 3. data preprocessing 
 # For scGATE simulated data, library size normalization is not performed. 
-# However, the simulated data is only re-scaled using the quantile normalization technique to fit within the (0,1) interval.
+# However, the simulated data is only re-scaled using the quantile normalization technique to fit the data within the (0,1) interval.
 data         <- scRNA_seq_preprocessing(data = data, library_size_normalization = "False")
 ```
 
@@ -199,7 +199,7 @@ print(head(tf_names))
 ```
 
 ```R
-# 3. scRNA-seq data preprocessing (library size normalization, quantile normalization technique to fit within the (0,1) interval) 
+# 3. scRNA-seq data preprocessing (library size normalization, quantile normalization technique to fit the scRNA-seq data within the (0,1) interval) 
 data           <- scRNA_seq_preprocessing(data = data, library_size_normalization = "True", tf_list = tf_names)
 ```
 
