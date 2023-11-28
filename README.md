@@ -162,7 +162,13 @@ print(head(gates))
 
 <br>
 
-### II. Context specific network inference in mouse scRNA-seq datasets
+### II. Context-specific network and logic gate inference in the mouse haematopoiesis scRNA-seq data 
+
+
+
+<br>
+
+### III. Context specific network inference in mouse scRNA-seq datasets
 
 ```R
 # 1. Please refer to the Jupyter notebook for instructions on how to perform scATAC-seq analysis to derive the candidate TF lists (base GRNs) in *.parquet file format.
@@ -218,7 +224,7 @@ print(head(ranked_edge_list))
 
 <br>
 
-### III. Context specific network inference in human haematopoiesis scRNA-seq dataset
+### IV. Context specific network inference in human haematopoiesis scRNA-seq dataset
 
 ```R
 # 1. Please refer to the Jupyter notebook for instructions on how to perform scATAC-seq analysis to derive the candidate TF lists (base GRNs) in *.parquet file format.
