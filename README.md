@@ -172,7 +172,6 @@ print(head(gates))
 
 rm(list = ls())
 library(scGATE)
-# Load data from Megakaryocyte cells (Cluster 11)
 data         <- as.data.frame(read.csv("/example_data/subset_counts_cluster_11.csv" , header = TRUE))
 
 # select genes involved in the MegE differentiation
