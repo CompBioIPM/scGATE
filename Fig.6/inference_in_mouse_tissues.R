@@ -1,54 +1,28 @@
+# Context specific network inference in mouse tissue scRNA-seq datasets
+# 1. Please refer to the Jupyter notebook for instructions on how to perform scATAC-seq analysis to derive the candidate TF lists (base GRNs) in *.parquet file format.
+# 2. Load scGATE package and data (base GRN and scRNA-seq data and TF list) in example_data folder 
 
-rm(list = ls())
+rm(list=ls())
 library(scGATE)
-################################################################################
-tissue_of_interest    <- "Spleen-10X_P4_7"
+# Load base GRN derived from external hints
+candidate_tf_target <- as.data.frame(read_parquet("/example_data/Cusanovich2018_Spleen_peak_base_GRN_dataframe.parquet"))
+candidate_tf_target <- read_base_GRN(candidate_tf_target)
 
-# load data
-load("base_GRNs_mouse_tissues.RData")
-# load base grns for each tissue
-if(tissue=="Spleen"){
-  base_grn     <- atac_candidates_peak[[1]]
-}else if(tissue=="Lung"){
-  base_grn     <- atac_candidates_peak[[2]]
-}else if(tissue=="Liver"){
-  base_grn     <- atac_candidates_peak[[3]]
-}else if(tissue=="Kidney"){
-  base_grn     <- atac_candidates_peak[[4]]
-}else if(tissue=="Heart_and_Aorta"){
-  base_grn     <- atac_candidates_peak[[5]]
-}
-
-tissue         <- strsplit(tissue_of_interest, "-")[[1]][1]
-target_names   <- unlist(read.table(paste0("\\", tissue_of_interest, "\\","tg_filtered.txt")))
-tf_names       <- unlist(read.table(paste0("\\", tissue_of_interest, "\\","tf_filtered.txt")))
-
-data           <- as.data.frame(read.csv(paste0("\\" , tissue_of_interest, "\\", "ExpressionData.csv") , header = TRUE))
+# Load scRNA-seq data
+data           <- as.data.frame(read.csv(paste0("/example_data/Tabula_Muris2018_Spleen-10X_P4_7_ExpressionData.csv") , header = TRUE))
 gene_names     <- data[ ,1]
 data           <- t(data[ ,2:ncol(data)])
 colnames(data) <- gene_names
 
-# make sure tfs and target genes are present in the expression data
-tf_filtered    <- intersect(tf_names, colnames(data))
-tg_filtered    <- intersect(target_names, colnames(data))
+head(data[ , 1:10])
 
-# sort expression profile matrix with tfs in the first columns and targets in the next columns
-data           <- data[ ,c(tf_filtered, tg_filtered)]
+# Load TF list
+# This step is optional
+tf_names       <- unlist(read.table("/example_data/Tabula_Muris2018_Spleen-10X_P4_7_tf_lists.txt"))
 
-# remove cells with low read counts
-data           <- data[apply(data > 0, 1, sum) > 0.1*ncol(data), ]
+# 3. scRNA-seq data preprocessing (library size normalization, quantile normalization technique to fit the scRNA-seq data within the (0,1) interval) 
+data           <- scRNA_seq_preprocessing(data = data, library_size_normalization = "True", tf_list = tf_names)
 
-# data normalization
-data           <- t(apply(data, 1, function(x) x/sum(x)))*100
-data           <- na.omit(data)
-q975           <- quantile(as.numeric(data), probs = 0.975 , na.rm = FALSE)
-data           <- data/q975
-data           <- replace(data, data>=1, 0.9999)
-data[1:10,1:10]
-################################################################################ identify TF-gene network
-abs_cor        <- 0
-k_act          <- 0.7
-h_act          <- 7
-res            <-  scGATE_edge(data = data, number_of_em_iterations = 3, max_num_regulators = 3, k_act = k_act, h_act = h_act, tf_names=tf_filtered, tg_names=tg_filtered, base_grn, abs_cor)
-print(res$ranked_edge_list)
-################################################################################
+# 4. Run scGATE_edge() function
+ranked_edge_list <-  scGATE_edge(data = data, base_GRN = candidate_tf_target, h_act = 7)
+print(head(ranked_edge_list))
