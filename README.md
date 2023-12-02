@@ -169,7 +169,7 @@ print(head(gates))
 
 <br>
 
-### III. Context specific network inference in mouse scRNA-seq datasets
+### III. Context specific network inference in mouse tissue scRNA-seq datasets
 
 ```R
 # 1. Please refer to the Jupyter notebook for instructions on how to perform scATAC-seq analysis to derive the candidate TF lists (base GRNs) in *.parquet file format.
