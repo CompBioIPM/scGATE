@@ -2,7 +2,7 @@
 rm(list=ls())
 library(scGATE) 
 
-data           <- as.data.frame(read.csv(/Fig.4/net1_data/net1-3000-1/ExpressionData.csv", header = TRUE))
+data           <- as.data.frame(read.csv("/Fig.4/net1_data/net1-3000-1/ExpressionData.csv", header = TRUE))
 gene_names     <- data[ ,1]
 data           <- t(data[ ,2:ncol(data)])
 colnames(data) <- gene_names
