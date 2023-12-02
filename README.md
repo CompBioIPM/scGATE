@@ -88,7 +88,7 @@ base_GRN:     Base TF-gene interaction network derived from external hints (e.g.
 h_set:        The range of possible values for the "h" parameter in the Hill climbing function.  
 number_of_em_iterations:  Number of EM iterations.  
 max_num_regulators: Maximum number of TFs in a logic gate that can regulate the target gene profile.  
-abs_cor:     Threshold for the absolute correlation values. TF-gene interactions with an absolute Pearson correlation lower than this threshold will be filtered out from the analysis. The default value is 0.  
+abs_cor:     This parameter varies in the (0, 1) interval and further removes edges with low absolute Pearson correlations between TFs and their targets. A (default) value of 0 indicates no filtration based on correlations.
 top_gates:   The number of top Boolean logic gates to be reported for each target gene, based on Bayes Factor.  
 run_mode:    Use "simple" for a faster algorithm run and "complex" for more precise results that take more time. The argument is relevant to the possible complexities in the hill function parameter space for regulatory TFs and target genes.<sub>
 
@@ -109,7 +109,7 @@ base_GRN: The TF-target gene network inferred from previous steps using external
 h_act: Hill function parameter used in the inference process.  
 number_of_em_iterations: The number of iterations in the expectation-maximization (EM) algorithm.  
 max_num_regulators: The maximum number of TFs in a Boolean logic gate. In the main manuscript, a value of 3 is used.  
-abs_cor: This parameter varies in the (0, 1) interval and further removes edges with low absolute Pearson correlations between TFs and their targets. A value of 0 indicates no filtration based on correlations.<sub>  
+abs_cor: This parameter varies in the (0, 1) interval and further removes edges with low absolute Pearson correlations between TFs and their targets. A (default) value of 0 indicates no filtration based on correlations.<sub>  
 
 <br>
 
