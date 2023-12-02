@@ -186,6 +186,9 @@ print(head(data))
 4 0.0000000 0.0000000 1.098612 0.0000000 0.6931472 0.0000000 1.6094380
 5 0.0000000 0.0000000 0.000000 0.0000000 0.6931472 0.6931472 1.3862944
 6 0.0000000 0.6931472 0.000000 0.0000000 0.6931472 1.0986123 0.0000000
+
+# Load base GRN
+base_GRN    <- read.csv(file = "/example_data/base_grn_mouse_blood_cell_differentiation_toggle_switch.csv")
 ```
 
 ```R
