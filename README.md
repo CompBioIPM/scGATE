@@ -9,7 +9,8 @@ Malekpour, S.A., Haghverdi, L., Sadeghi, M., Single-cell multi-omics analysis id
 <br>
 <br>
 
-![Fig1](https://github.com/CompBioIPM/scGATE/assets/47293318/4be29239-0cd7-4871-aa01-18268ba7bb7d)
+![Fig1](https://github.com/CompBioIPM/scGATE/assets/47293318/0d596d39-ec44-4e23-93d3-e850ed8727d1)
+
 
 ## Step 1. scGATE installation
 The scGATE codes are written in R version 4.1.3 and have been tested in both Windows and Linux environments. 
@@ -149,15 +150,15 @@ data$n_counts<- data$n_counts[ , which(sqrt(apply(data$n_counts,2,var))> 0.20)]
 ```R
 # 5. Run scGATE_logic() function
 # Please note that the likelihood values can be affected by the Louvain clustering results.
-gates        <- scGATE_logic(data = data, number_of_em_iterations = 5, max_num_regulators = 3, abs_cor = 0.05, top_gates = 1, run_mode = "fast")
+gates        <- scGATE_logic(data = data, top_gates = 1, run_mode = "fast")
 print(head(gates))
   gene_name -log10 L0 -log10 L1 log10 BF logic_gate
-1        gE     173.9   -278.87   452.76        ~gF
-2       gE1      59.2    -275.1   334.30    gE.~gE2
-3       gE2     41.52   -277.04   318.56    gE.~gE1
-4        gF    170.38   -288.46   458.84        ~gE
-5       gF1     80.36   -262.54   342.90    gF.~gF2
-6       gF2      67.6   -264.85   332.45    gF.~gF1
+1        gE     173.9   -268.57   442.47        ~gF
+2       gE1     51.85   -234.65   286.50    gE.~gE2
+3       gE2     38.43   -235.48   273.91    gE.~gE1
+4        gF    170.38   -278.57   448.95        ~gE
+5       gF1     80.36   -215.32   295.68    gF.~gF2
+6       gF2      67.6   -217.88   285.48    gF.~gF1
 ```
 
 <br>
