@@ -1,7 +1,7 @@
 # Context-specific network and logic gate inference in the mouse haematopoiesis scRNA-seq data
 # 1. Please refer to the Jupyter notebook for instructions on how to perform Louvain clustering on the cells in the mouse haematopoiesis scRNA-seq dataset.
 # 2. Retrieve the data from Megakaryocyte cells (Cluster 11).
-# Load scGATE package and data in example_data folder
+# Load scGATE package and data in example_data folder 
 
 rm(list = ls())
 library(scGATE)
