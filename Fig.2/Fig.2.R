@@ -1,7 +1,7 @@
 # Context-specific network and logic gate inference in synthetic toggle switch
 # 1. Please refer to the Jupyter notebook for instructions on how to perform Louvain clustering on the cells in the BoolODE simulated data.
 # 2. Retrieve the data from Cluster I of cells, which was obtained in the previous step.
-# Load scGATE package and data in example_data folder
+# Load scGATE package and data in example_data folder  
  
 rm(list = ls())
 library(scGATE)
