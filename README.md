@@ -50,7 +50,7 @@ To summarize information in the base GRN file in ".parquet" format, previously g
 
 ```R
 # Read and summarize base GRN file
-candidate_tf_target <- as.data.frame(read_parquet("res_Buenrostro2018_base_GRN_dataframe.parquet"))
+candidate_tf_target <- as.data.frame(read_parquet("Buenrostro2018_base_GRN_dataframe.parquet"))
 candidate_tf_target <- read_base_GRN(candidate_tf_target)
 ```
 
