@@ -123,7 +123,7 @@ abs_cor: This parameter varies in the (0, 1) interval and further removes edges 
  
 rm(list = ls())
 library(scGATE)
-data         <- as.matrix(read.csv(paste0("/example_data/ClusterI.csv"))[ ,2:15])
+data         <- as.matrix(read.csv("/example_data/ClusterI.csv")[ ,2:15])
 print(head(data))
              gA       gB         gC        gC1        gC2         gD        gD1        gD2       gE        gE1      gE2         gF        gF1        gF2
 [1,] 0.02764677 2.028944 0.01688577 0.01946526 0.02380772 0.01852824 0.02069895 0.02093184 1.932168 0.06889533 1.824497 0.04963150 0.05794413 0.04217521
@@ -188,7 +188,7 @@ print(head(data))
 6 0.0000000 0.6931472 0.000000 0.0000000 0.6931472 1.0986123 0.0000000
 
 # Load base GRN
-base_GRN    <- read.csv(file = "/example_data/base_grn_mouse_blood_cell_differentiation_toggle_switch.csv")
+base_GRN    <- read.csv("/example_data/base_grn_mouse_blood_cell_differentiation_toggle_switch.csv")
 ```
 
 ```R
@@ -218,7 +218,7 @@ candidate_tf_target <- as.data.frame(read_parquet("/example_data/Cusanovich2018_
 candidate_tf_target <- read_base_GRN(candidate_tf_target)
 
 # Load scRNA-seq data
-data           <- as.data.frame(read.csv(paste0("/example_data/Tabula_Muris2018_Spleen-10X_P4_7_ExpressionData.csv") , header = TRUE))
+data           <- as.data.frame(read.csv("/example_data/Tabula_Muris2018_Spleen-10X_P4_7_ExpressionData.csv" , header = TRUE))
 gene_names     <- data[ ,1]
 data           <- t(data[ ,2:ncol(data)])
 colnames(data) <- gene_names
@@ -274,7 +274,7 @@ candidate_tf_target <- as.data.frame(read_parquet("/example_data/Buenrostro2018_
 candidate_tf_target <- read_base_GRN(candidate_tf_target)
 
 # Load scRNA-seq data
-data           <- as.data.frame(read.csv(paste0("/example_data/Buenrostro2018_ExpressionData.csv") , header = TRUE))
+data           <- as.data.frame(read.csv("/example_data/Buenrostro2018_ExpressionData.csv" , header = TRUE))
 gene_names     <- data[ ,1]
 data           <- t(data[ ,2:ncol(data)])
 colnames(data) <- gene_names
