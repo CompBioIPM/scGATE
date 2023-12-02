@@ -123,7 +123,7 @@ abs_cor: This parameter varies in the (0, 1) interval and further removes edges 
  
 rm(list = ls())
 library(scGATE)
-data         <- as.matrix(read.csv(paste0("D:\\scGATE_files\\example_data\\ClusterI.csv"))[ ,2:15])
+data         <- as.matrix(read.csv(paste0("/example_data/ClusterI.csv"))[ ,2:15])
 print(head(data))
              gA       gB         gC        gC1        gC2         gD        gD1        gD2       gE        gE1      gE2         gF        gF1        gF2
 [1,] 0.02764677 2.028944 0.01688577 0.01946526 0.02380772 0.01852824 0.02069895 0.02093184 1.932168 0.06889533 1.824497 0.04963150 0.05794413 0.04217521
@@ -165,7 +165,40 @@ print(head(gates))
 
 ### II. Context-specific network and logic gate inference in the mouse haematopoiesis scRNA-seq data 
 
+```R
+# 1. Please refer to the Jupyter notebook for instructions on how to perform Louvain clustering on the cells in the mouse haematopoiesis scRNA-seq dataset.
+# 2. Retrieve the data from Megakaryocyte cells (Cluster 11).
+# Load scGATE package and data in example_data folder
 
+rm(list = ls())
+library(scGATE)
+# Load data from Megakaryocyte cells (Cluster 11)
+data         <- as.data.frame(read.csv("/example_data/subset_counts_cluster_11.csv" , header = TRUE))
+
+# select genes involved in the MegE differentiation
+gene_list   <- c("Gata1", "Fli1", "Klf1", "Spi1", "Zfpm1", "Tal1", "Gata2")
+data        <- data[  , gene_list]
+data        <- na.omit(data)
+print(head(data))
+      Gata1      Fli1     Klf1      Spi1     Zfpm1      Tal1     Gata2
+1 0.6931472 1.0986123 0.000000 0.6931472 0.0000000 0.6931472 0.0000000
+2 0.0000000 1.3862944 0.000000 0.0000000 0.0000000 0.6931472 1.0986123
+3 0.6931472 1.6094380 0.000000 0.0000000 0.0000000 0.0000000 0.6931472
+4 0.0000000 0.0000000 1.098612 0.0000000 0.6931472 0.0000000 1.6094380
+5 0.0000000 0.0000000 0.000000 0.0000000 0.6931472 0.6931472 1.3862944
+6 0.0000000 0.6931472 0.000000 0.0000000 0.6931472 1.0986123 0.0000000
+```
+
+```R
+# 3. data preprocessing 
+# 3. scRNA-seq data preprocessing (The dataset underwent library size normalization in Jupyter Notebook. To fit the scRNA-seq data within the (0,1) interval, we applied quantile normalization as a technique to rescale the data.)
+data        <- scRNA_seq_preprocessing(data = data, library_size_normalization = "False")
+```
+
+```R
+gates       <- scGATE_logic(data = data, base_GRN = base_GRN, number_of_em_iterations = 10, top_gates = 1, run_mode = "slow")
+print(head(gates))
+```
 
 <br>
 
@@ -178,11 +211,11 @@ print(head(gates))
 rm(list=ls())
 library(scGATE)
 # Load base GRN derived from external hints
-candidate_tf_target <- as.data.frame(read_parquet("D:\\scGATE_files\\example_data\\Cusanovich2018_Spleen_peak_base_GRN_dataframe.parquet"))
+candidate_tf_target <- as.data.frame(read_parquet("/example_data/Cusanovich2018_Spleen_peak_base_GRN_dataframe.parquet"))
 candidate_tf_target <- read_base_GRN(candidate_tf_target)
 
 # Load scRNA-seq data
-data           <- as.data.frame(read.csv(paste0("D:\\scGATE_files\\example_data\\Tabula_Muris2018_Spleen-10X_P4_7_ExpressionData.csv") , header = TRUE))
+data           <- as.data.frame(read.csv(paste0("/example_data/Tabula_Muris2018_Spleen-10X_P4_7_ExpressionData.csv") , header = TRUE))
 gene_names     <- data[ ,1]
 data           <- t(data[ ,2:ncol(data)])
 colnames(data) <- gene_names
@@ -199,7 +232,7 @@ AAACCTGTCAGGTAAA.1    0      0    0     23        3    8    24   0    0      0
 
 # Load TF list
 # This step is optional
-tf_names       <- unlist(read.table("D:\\scGATE_files\\example_data\\Tabula_Muris2018_Spleen-10X_P4_7_tf_lists.txt"))
+tf_names       <- unlist(read.table("/example_data/Tabula_Muris2018_Spleen-10X_P4_7_tf_lists.txt"))
 print(head(tf_names))
       V1       V2       V3 
   "Batf" "Stat5b"   "Ctcf"
@@ -234,11 +267,11 @@ print(head(ranked_edge_list))
 rm(list=ls())
 library(scGATE)
 # Load base GRN derived from external hints
-candidate_tf_target <- as.data.frame(read_parquet("D:\\scGATE_files\\example_data\\Buenrostro2018_base_GRN_dataframe.parquet"))
+candidate_tf_target <- as.data.frame(read_parquet("/example_data/Buenrostro2018_base_GRN_dataframe.parquet"))
 candidate_tf_target <- read_base_GRN(candidate_tf_target)
 
 # Load scRNA-seq data
-data           <- as.data.frame(read.csv(paste0("D:\\scGATE_files\\example_data\\Buenrostro2018_ExpressionData.csv") , header = TRUE))
+data           <- as.data.frame(read.csv(paste0("/example_data/Buenrostro2018_ExpressionData.csv") , header = TRUE))
 gene_names     <- data[ ,1]
 data           <- t(data[ ,2:ncol(data)])
 colnames(data) <- gene_names
@@ -254,7 +287,7 @@ hsc_6    0   3    0    0    1    0    0     0     0     0
 
 # Load TF list
 # This step is optional
-tf_names       <- unlist(read.table("D:\\scGATE_files\\example_data\\Buenrostro2018_tf_lists.txt"))
+tf_names       <- unlist(read.table("/example_data/Buenrostro2018_tf_lists.txt"))
 print(head(tf_names))
     V1     V2     V3     V4     V5     V6 
 "IRF8"  "FOS" "MAFF" "SPI1" "JUNB" "SPIB" 
