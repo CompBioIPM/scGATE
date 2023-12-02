@@ -1,6 +1,6 @@
 # 1. Load scGATE package and data
 rm(list=ls())
-library(scGATE)
+library(scGATE) 
 
 data           <- as.data.frame(read.csv(/Fig.4/net1_data/net1-3000-1/ExpressionData.csv", header = TRUE))
 gene_names     <- data[ ,1]
