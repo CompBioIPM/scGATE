@@ -317,8 +317,8 @@ print(head(ranked_edge_list))
 <br>
 
 ## Datasets
-Raw scRNA-seq data for cell-type specific logic gate inference in the mouse haematopoiesis (Fig.3) is available at https://doi.org/10.5281/zenodo.8353409.
-Base grns reconstructed with scATAC-seq data and TF binding site motifs (Fig.6) are also available at https://doi.org/10.5281/zenodo.8353409.
+Raw scRNA-seq data for cell-type specific logic gate inference in the mouse haematopoiesis dataset (Fig.3) is also available at Zenodo https://doi.org/10.5281/zenodo.8353409.  
+All base GRNs reconstructed with scATAC-seq and TF binding site motif datasets, in mouse tissues and human haematopoiesis studies, together with other intermediate files and processed datasets are available at Zenodo https://doi.org/10.5281/zenodo.8353409.
 
 
 
