@@ -1,6 +1,6 @@
 ## scGATE: single-cell gene regulatory gate inference
 We have developed scGATE (single-cell gene regulatory gate) as a logic-based model for deciphering tissue- and cell-type-specific gene regulatory networks from single-cell RNA sequencing (scRNA-seq). While previous efforts have focused on reconstructing directed transcription factor (TF) to target gene networks, logic-based models enable the exploration of more complex combinatorial relationships between regulators. In particular, Boolean logic models can capture higher-order TF interactions, represented through AND, OR, and XOR logic gates. Our novel approach infers TF-gene networks from scRNA-seq data while simultaneously elucidating the underlying Boolean logic that combines TF activities.
-The methodology integrates external genomic data, such as single-cell assay for transposase-accessible chromatin sequencing (scATAC-seq) and motif analysis, to narrow down candidate TFs for each target gene. TF-gene links are further refined using scRNA-seq data, and logic rules are derived. To enhance statistical power, scGATE focuses on reconstructing context-specific regulatory networks, including tissue- or cell-type-specific networks. This study presents an integrative framework for deducing cell-type-specific gene regulation, moving beyond TF-gene pairs to capture the complex logic operations underlying combinatorial control.
+The methodology integrates external genomic data, such as single-cell assay for transposase-accessible chromatin sequencing (scATAC-seq) and motif analysis, to narrow down candidate TFs for each target gene. TF-gene links are further refined using scRNA-seq data, and logic rules are derived. To enhance statistical power, scGATE focuses on reconstructing context specific regulatory networks, including tissue- or cell-type-specific networks. This study presents an integrative framework for deducing cell-type-specific gene regulation, moving beyond TF-gene pairs to capture the complex logic operations underlying combinatorial control.
 
 <br>
 Malekpour, S.A., Haghverdi, L., Sadeghi, M., Single-cell multi-omics analysis identifies context specific gene regulatory gates and mechanisms. Briefings In Bioinformatics, 2023.
@@ -114,7 +114,7 @@ abs_cor: This parameter varies in the (0, 1) interval and further removes edges 
 <br>
 
 ## Example usage of scGATE 
-### I. Context-specific network and logic gate inference in synthetic toggle switch 
+### I. Context specific network and logic gate inference in synthetic toggle switch 
 
 ```R
 # 1. Please refer to the Jupyter notebook for instructions on how to perform Louvain clustering on the cells in the BoolODE simulated data.
@@ -163,7 +163,7 @@ print(head(gates))
 
 <br>
 
-### II. Context-specific network and logic gate inference in the mouse haematopoiesis scRNA-seq data 
+### II. Context specific network and logic gate inference in the mouse haematopoiesis scRNA-seq data 
 
 ```R
 # 1. Please refer to the Jupyter notebook for instructions on how to perform Louvain clustering on the cells in the mouse haematopoiesis scRNA-seq dataset.
