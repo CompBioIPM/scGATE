@@ -105,7 +105,7 @@ Parameter Descriptions
 # h_set                   The range of possible values for the "h" parameter in the Hill climbing function.
  
 # number_of_em_iterations The number of iterations in the expectation-maximization (EM) algorithm.
-                          The default value is 3.
+#                         The default value is 3.
 
 # max_num_regulators      Maximum number of TFs in a logic gate that can regulate the target gene profile.
 #                         The default value is 3.
@@ -114,7 +114,7 @@ Parameter Descriptions
 #                         A (default) value of 0 indicates no filtration based on correlations.
   
 # top_gates               The number of top Boolean logic gates to be reported for each target gene, based on Bayes Factor.
-                          The default value is 1.
+#                         The default value is 1.
   
 # run_mode:               Use "simple" for a faster algorithm run and "complex" for more precise results that take more time.
 #                         The argument is relevant to the possible complexities in the hill function parameter space for regulatory TFs and target genes.
