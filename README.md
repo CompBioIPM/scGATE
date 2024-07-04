@@ -67,14 +67,14 @@ normalized_counts <- scRNA_seq_preprocessing(data = data_scRNA_seq, library_size
 
 Parameter Descriptions  
 ```bash
-#data                       The scRNA-seq raw data matrix with cells in rows and genes in columns.
+# data                       The scRNA-seq raw data matrix with cells in rows and genes in columns.
 
-#library_size_normalization A flag indicating whether library size normalization should be performed.
-#                           The default value is "True".
-#                           Set it to "False" if you don't want to perform library size normalization.
+# library_size_normalization A flag indicating whether library size normalization should be performed.
+#                            The default value is "True".
+#                            Set it to "False" if you don't want to perform library size normalization.
   
-#tf_list                    A list of transcription factors (TFs) to consider.
-#                           The default value is NA, which means all columns in the data matrix will be considered as TFs.  
+# tf_list                    A list of transcription factors (TFs) to consider.
+#                            The default value is NA, which means all columns in the data matrix will be considered as TFs.  
 ```
 
 <br>
@@ -94,29 +94,29 @@ print(head(gates))
 ```
 Parameter Descriptions   
 ```bash
-data                    A gene expression matrix with normalized counts within the (0,1) interval,
-                        where samples are represented as rows and genes as columns.
-                        The gene expression matrix should have been preprocessed using the scRNA_seq_preprocessing() function.
+# data                    A gene expression matrix with normalized counts within the (0,1) interval,
+#                         where samples are represented as rows and genes as columns.
+#                         The gene expression matrix should have been preprocessed using the scRNA_seq_preprocessing() function.
 
-base_GRN                Base TF-gene interaction network derived from external hints
-                        (e.g., scATAC-seq data and TF binding site motifs on DNA).
+# base_GRN                Base TF-gene interaction network derived from external hints
+#                         (e.g., scATAC-seq data and TF binding site motifs on DNA).
 
-h_set                   The range of possible values for the "h" parameter in the Hill climbing function.
+# h_set                   The range of possible values for the "h" parameter in the Hill climbing function.
  
-number_of_em_iterations The number of iterations in the expectation-maximization (EM) algorithm.
+# number_of_em_iterations The number of iterations in the expectation-maximization (EM) algorithm.
 
-max_num_regulators      The Maximum number of TFs in a logic gate that can regulate the target gene profile.
-                        In the main manuscript, a value of 3 is used.
+# max_num_regulators      The Maximum number of TFs in a logic gate that can regulate the target gene profile.
+#                         In the main manuscript, a value of 3 is used.
 
-abs_cor                 This parameter varies in the (0, 1) interval and further removes edges with low absolute Pearson correlations between TFs and their targets.
-                        A (default) value of 0 indicates no filtration based on correlations.
+# abs_cor                 This parameter varies in the (0, 1) interval and further removes edges with low absolute Pearson correlations between TFs and their targets.
+#                         A (default) value of 0 indicates no filtration based on correlations.
   
-top_gates               The number of top Boolean logic gates to be reported for each target gene, based on Bayes Factor.
+# top_gates               The number of top Boolean logic gates to be reported for each target gene, based on Bayes Factor.
   
-run_mode:               Use "simple" for a faster algorithm run and "complex" for more precise results that take more time.
-                        The argument is relevant to the possible complexities in the hill function parameter space for regulatory TFs and target genes.
+# run_mode:               Use "simple" for a faster algorithm run and "complex" for more precise results that take more time.
+#                         The argument is relevant to the possible complexities in the hill function parameter space for regulatory TFs and target genes.
 
-num_cores               Specify the number of parallel workers (adjust according to your system).
+# num_cores               Specify the number of parallel workers (adjust according to your system).
 ```
 
 <br>
@@ -132,24 +132,24 @@ print(head(edges))
 
 Parameter Descriptions 
 ```bash
-data                    A gene expression matrix with normalized counts within the (0,1) interval,
-                        where samples are represented as rows and genes as columns.
-                        The gene expression matrix should have been preprocessed using the scRNA_seq_preprocessing() function.
+# data                    A gene expression matrix with normalized counts within the (0,1) interval,
+#                         where samples are represented as rows and genes as columns.
+#                         The gene expression matrix should have been preprocessed using the scRNA_seq_preprocessing() function.
   
-base_GRN                The TF-target gene network inferred from previous steps using external hints.
-                        Leave it empty if no base GRN is available.
+# base_GRN                The TF-target gene network inferred from previous steps using external hints.
+#                         Leave it empty if no base GRN is available.
 
-h_act                   Hill function parameter used in the inference process.
+# h_act                   Hill function parameter used in the inference process.
   
-number_of_em_iterations The number of iterations in the expectation-maximization (EM) algorithm.
+# number_of_em_iterations The number of iterations in the expectation-maximization (EM) algorithm.
  
-max_num_regulators      The maximum number of TFs in a Boolean logic gate.
-                        In the main manuscript, a value of 3 is used.
+# max_num_regulators      The maximum number of TFs in a Boolean logic gate.
+#                         In the main manuscript, a value of 3 is used.
 
-abs_cor                 This parameter varies in the (0, 1) interval and further removes edges with low absolute Pearson correlations between TFs and their targets.
-                        A (default) value of 0 indicates no filtration based on correlations.
+# abs_cor                 This parameter varies in the (0, 1) interval and further removes edges with low absolute Pearson correlations between TFs and their targets.
+#                         A (default) value of 0 indicates no filtration based on correlations.
 
-num_cores               Specify the number of parallel workers (adjust according to your system)  
+# num_cores               Specify the number of parallel workers (adjust according to your system)  
 ```
 <br>
 
