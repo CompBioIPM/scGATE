@@ -143,7 +143,8 @@ Parameter Descriptions
 #                         where samples are represented as rows and genes as columns.
 #                         The gene expression matrix should have been preprocessed using the scRNA_seq_preprocessing() function.
   
-# base_GRN                Base TF-gene interactions derived from external hints (e.g., scATAC-seq data and TF binding site motifs on DNA).
+# base_GRN                Base TF-gene interactions derived from external hints
+#                         (e.g., scATAC-seq data and TF binding site motifs on DNA).
 #                         Leave it empty if no base GRN is available.
 
 # h_act                   Parameter of the Hill climbing function.
@@ -151,7 +152,7 @@ Parameter Descriptions
 #                         The default value is 7.
   
 # number_of_em_iterations The number of iterations in the expectation-maximization (EM) algorithm.
-                          The default value is 3.
+#                         The default value is 3.
  
 # max_num_regulators      Maximum number of TFs in a logic gate that can regulate the target gene profile.
 #                         The default value is 3.
@@ -200,7 +201,7 @@ data$n_counts <- data$n_counts[ , which(sqrt(apply(data$n_counts,2,var))> 0.20)]
 ```R
 # 5. Run scGATE_logic() function
 # Please note that the likelihood values can be affected by the Louvain clustering results.
-gates <- scGATE_logic(data = data, top_gates = 1, run_mode = "fast")
+gates <- scGATE_logic(data = data, top_gates = 1, run_mode = "simple")
 print(head(gates))
   gene_name -log10 L0 -log10 L1 log10 BF logic_gate
 1        gE     173.9   -268.57   442.47        ~gF
