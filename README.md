@@ -31,8 +31,11 @@ Please ensure that you have the following packages installed:
 install.packages("VGAM")  
 install.packages("truncnorm")
 install.packages("arrow")
+install.packages("doParallel")
+install.packages("foreach")
+install.packages("doSNOW")
 ```
-These commands will install the VGAM, truncnorm, and arrow packages, which are required for running scGATE.  
+In order to run scGATE with parallel computing, the packages doParallel, foreach, and doSNOW need to be installed.
 
 To load the packages, use the following commands:  
 ```R
@@ -62,10 +65,12 @@ To preprocess raw scRNA-seq data, including steps such as normalization and resc
 normalized_counts <- scRNA_seq_preprocessing(data = data_scRNA_seq, library_size_normalization = "True", tf_list = NA)
 ```
 
-<sub>Parameter Descriptions    
+<sub>Parameter Descriptions  
+```bash
 data: The scRNA-seq raw data matrix with cells in rows and genes in columns.  
 library_size_normalization: A flag indicating whether library size normalization should be performed. The default value is "True". Set it to "False" if you don't want to perform library size normalization.  
 tf_list: A list of transcription factors (TFs) to consider. The default value is NA, which means all columns in the data matrix will be considered as TFs.<sub>  
+```
 
 <br>
 
