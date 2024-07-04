@@ -163,7 +163,7 @@ num_cores               Specify the number of parallel workers (adjust according
  
 rm(list = ls())
 library(scGATE)
-data         <- as.matrix(read.csv("/example_data/ClusterI.csv")[ ,2:15])
+data <- as.matrix(read.csv("/example_data/ClusterI.csv")[ ,2:15])
 print(head(data))
              gA       gB         gC        gC1        gC2         gD        gD1        gD2       gE        gE1      gE2         gF        gF1        gF2
 [1,] 0.02764677 2.028944 0.01688577 0.01946526 0.02380772 0.01852824 0.02069895 0.02093184 1.932168 0.06889533 1.824497 0.04963150 0.05794413 0.04217521
@@ -178,19 +178,19 @@ print(head(data))
 # 3. data preprocessing 
 # For scGATE simulated data, library size normalization is not performed. 
 # However, the simulated data is only re-scaled using the quantile normalization technique to fit the data within the (0,1) interval.
-data         <- scRNA_seq_preprocessing(data = data, library_size_normalization = "False")
+data <- scRNA_seq_preprocessing(data = data, library_size_normalization = "False")
 ```
 
 ```R
 # 4. Remove genes with low variability (scGATE operates on highly variable genes per context).
 # This step is optional
-data$n_counts<- data$n_counts[ , which(sqrt(apply(data$n_counts,2,var))> 0.20)]
+data$n_counts <- data$n_counts[ , which(sqrt(apply(data$n_counts,2,var))> 0.20)]
 ```
 
 ```R
 # 5. Run scGATE_logic() function
 # Please note that the likelihood values can be affected by the Louvain clustering results.
-gates        <- scGATE_logic(data = data, top_gates = 1, run_mode = "fast")
+gates <- scGATE_logic(data = data, top_gates = 1, run_mode = "fast")
 print(head(gates))
   gene_name -log10 L0 -log10 L1 log10 BF logic_gate
 1        gE     173.9   -268.57   442.47        ~gF
