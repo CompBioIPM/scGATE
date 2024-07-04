@@ -223,12 +223,12 @@ print(head(gates))
 
 rm(list = ls())
 library(scGATE)
-data         <- as.data.frame(read.csv("/example_data/subset_counts_cluster_11.csv" , header = TRUE))
+data <- as.data.frame(read.csv("/example_data/subset_counts_cluster_11.csv" , header = TRUE))
 
 # select genes involved in the MegE differentiation
-gene_list   <- c("Gata1", "Fli1", "Klf1", "Spi1", "Zfpm1", "Tal1", "Gata2")
-data        <- data[  , gene_list]
-data        <- na.omit(data)
+gene_list <- c("Gata1", "Fli1", "Klf1", "Spi1", "Zfpm1", "Tal1", "Gata2")
+data <- data[  , gene_list]
+data <- na.omit(data)
 print(head(data))
       Gata1      Fli1     Klf1      Spi1     Zfpm1      Tal1     Gata2
 1 0.6931472 1.0986123 0.000000 0.6931472 0.0000000 0.6931472 0.0000000
@@ -239,18 +239,18 @@ print(head(data))
 6 0.0000000 0.6931472 0.000000 0.0000000 0.6931472 1.0986123 0.0000000
 
 # Load base GRN
-base_GRN    <- read.csv("/example_data/base_grn_mouse_blood_cell_differentiation_toggle_switch.csv")
+base_GRN <- read.csv("/example_data/base_grn_mouse_blood_cell_differentiation_toggle_switch.csv")
 ```
 
 ```R
 # 3. data preprocessing 
 # The dataset underwent library size normalization in Jupyter Notebook. To fit the scRNA-seq data within the (0,1) interval, we applied quantile normalization as a technique to rescale the data.
-data        <- scRNA_seq_preprocessing(data = data, library_size_normalization = "False")
+data <- scRNA_seq_preprocessing(data = data, library_size_normalization = "False")
 ```
 
 ```R
 # 4. Run scGATE_logic() function
-gates       <- scGATE_logic(data = data, base_GRN = base_GRN, number_of_em_iterations = 10, top_gates = 1, run_mode = "slow")
+gates <- scGATE_logic(data = data, base_GRN = base_GRN, number_of_em_iterations = 10, top_gates = 1, run_mode = "slow")
 print(head(gates))
 ```
 
