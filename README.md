@@ -116,7 +116,7 @@ Parameter Descriptions
 # top_gates               The number of top Boolean logic gates to be reported for each target gene, based on Bayes Factor.
 #                         The default value is 1.
   
-# run_mode:               Use "simple" for a faster algorithm run and "complex" for more precise results that take more time.
+# run_mode                Use "simple" for a faster algorithm run and "complex" for more precise results that take more time.
 #                         The argument is relevant to the possible complexities in the hill function parameter space for regulatory TFs and target genes.
 #                         The default value is "simple".
 
