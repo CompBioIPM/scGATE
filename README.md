@@ -250,7 +250,7 @@ data <- scRNA_seq_preprocessing(data = data, library_size_normalization = "False
 
 ```R
 # 4. Run scGATE_logic() function
-gates <- scGATE_logic(data = data, base_GRN = base_GRN, number_of_em_iterations = 10, top_gates = 1, run_mode = "slow")
+gates <- scGATE_logic(data = data, base_GRN = base_GRN, number_of_em_iterations = 10, top_gates = 1, run_mode = "complex")
 print(head(gates))
 ```
 
