@@ -90,15 +90,24 @@ To infer the TF-target network with logic gates in the output, you can use the `
 gates <- scGATE_logic(data = data, base_GRN = NA, h_set = NA, number_of_em_iterations = NA, max_num_regulators = NA, abs_cor = NA, top_gates = NA, run_mode = NA)
 print(head(gates))
 ```
-<sub>Parameter Descriptions   
-data:         A gene expression matrix with normalized counts within the (0,1) interval, where samples are represented as rows and genes as columns. The gene expression matrix should have been preprocessed using the scRNA_seq_preprocessing() function.  
-base_GRN:     Base TF-gene interaction network derived from external hints (e.g., scATAC-seq data and TF binding site motifs on DNA).  
-h_set:        The range of possible values for the "h" parameter in the Hill climbing function.  
-number_of_em_iterations:  The number of iterations in the expectation-maximization (EM) algorithm.    
-max_num_regulators: The Maximum number of TFs in a logic gate that can regulate the target gene profile. In the main manuscript, a value of 3 is used.  
-abs_cor:     This parameter varies in the (0, 1) interval and further removes edges with low absolute Pearson correlations between TFs and their targets. A (default) value of 0 indicates no filtration based on correlations.  
-top_gates:   The number of top Boolean logic gates to be reported for each target gene, based on Bayes Factor.  
-run_mode:    Use "simple" for a faster algorithm run and "complex" for more precise results that take more time. The argument is relevant to the possible complexities in the hill function parameter space for regulatory TFs and target genes.<sub>
+Parameter Descriptions   
+```bash
+data                     A gene expression matrix with normalized counts within the (0,1) interval,
+                         where samples are represented as rows and genes as columns.
+                         The gene expression matrix should have been preprocessed using the scRNA_seq_preprocessing() function.  
+base_GRN                 Base TF-gene interaction network derived from external hints
+                         (e.g., scATAC-seq data and TF binding site motifs on DNA).  
+h_set                    The range of possible values for the "h" parameter in the Hill climbing function.  
+number_of_em_iterations  The number of iterations in the expectation-maximization (EM) algorithm.    
+max_num_regulators       The Maximum number of TFs in a logic gate that can regulate the target gene profile.
+                         In the main manuscript, a value of 3 is used.  
+abs_cor                  This parameter varies in the (0, 1) interval and further removes edges with low absolute Pearson correlations between TFs and their targets.
+                         A (default) value of 0 indicates no filtration based on correlations.  
+top_gates                The number of top Boolean logic gates to be reported for each target gene, based on Bayes Factor.  
+run_mode:                Use "simple" for a faster algorithm run and "complex" for more precise results that take more time.
+                         The argument is relevant to the possible complexities in the hill function parameter space for regulatory TFs and target genes.
+num_cores                Specify the number of parallel workers (adjust according to your system).
+```
 
 <br>
 
