@@ -67,9 +67,9 @@ normalized_counts <- scRNA_seq_preprocessing(data = data_scRNA_seq, library_size
 
 <sub>Parameter Descriptions  
 ```bash
-data: The scRNA-seq raw data matrix with cells in rows and genes in columns.  
-library_size_normalization: A flag indicating whether library size normalization should be performed. The default value is "True". Set it to "False" if you don't want to perform library size normalization.  
-tf_list: A list of transcription factors (TFs) to consider. The default value is NA, which means all columns in the data matrix will be considered as TFs.<sub>  
+      data                         The scRNA-seq raw data matrix with cells in rows and genes in columns.  
+      library_size_normalization   A flag indicating whether library size normalization should be performed. The default value is "True". Set it to "False" if you don't want to perform library size normalization.  
+      tf_list                      A list of transcription factors (TFs) to consider. The default value is NA, which means all columns in the data matrix will be considered as TFs.<sub>  
 ```
 
 <br>
