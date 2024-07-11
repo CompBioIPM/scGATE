@@ -276,6 +276,8 @@ print(gates)
 
 rm(list=ls())
 library(scGATE)
+library(arrow)
+
 # Load base GRN derived from external hints
 candidate_tf_target <- as.data.frame(read_parquet("/example_data/Cusanovich2018_Spleen_peak_base_GRN_dataframe.parquet"))
 candidate_tf_target <- read_base_GRN(candidate_tf_target)
