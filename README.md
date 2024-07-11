@@ -122,6 +122,7 @@ Parameter Descriptions
 
 # weight_threshold        The output form scGATE will present the logic combination or partition that yields a certain percentage of the target gene,
 #                         specifically when it is above the weight_threshold.
+#                         The default value is 0.05.
 
 # num_cores               Specify the number of parallel workers (adjust according to your system).
 ```
