@@ -257,7 +257,7 @@ print(head(gates))
 
 # To effectively derive Boolean rules from extensive scRNA-seq datasets containing over 10 TFs,
 # we recommend employing scGATE with the following configuration.
-gates <- scGATE_logic(data = data, base_GRN = base_GRN, number_of_em_iterations = 10, max_num_regulators = 2, top_gates = 50, run_mode = "simple")
+gates <- scGATE_logic(data = data, base_GRN = base_GRN, number_of_em_iterations = 10, top_gates = 50, run_mode = "simple")
 print(gates)
 
 # or you may use,
