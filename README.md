@@ -316,12 +316,12 @@ data <- scRNA_seq_preprocessing(data = data, library_size_normalization = "True"
 ranked_edge_list <- scGATE_edge(data = data, base_GRN = candidate_tf_target, h_act = 7)
 print(head(ranked_edge_list))
     from    to BF_score
-1   Ctcf Rps19 2013.587
-2   Batf Rps19 2012.551
-3 Stat5b Rplp0 1850.334
-4   Ctcf Rplp0 1849.896
-5   Ctcf Rpl36 1649.263
-6   Ctcf Eif5a 1559.044
+1   Ctcf Rps19 2002.419
+2   Batf Rps19 2001.388
+3 Stat5b Rplp0 1840.046
+4   Ctcf Rplp0 1839.610
+5   Ctcf Rpl36 1639.910
+6   Ctcf Eif5a 1550.267
 ```
 
 <br>
