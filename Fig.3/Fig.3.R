@@ -21,5 +21,5 @@ base_GRN    <- read.csv(file = "/example_data/base_grn_mouse_blood_cell_differen
 data        <- scRNA_seq_preprocessing(data = data, library_size_normalization = "False")
 
 # 4. Run scGATE_logic() function
-gates       <- scGATE_logic(data = data, base_GRN = base_GRN, number_of_em_iterations = 10, top_gates = 1, run_mode = "slow")
+gates       <- scGATE_logic(data = data, base_GRN = base_GRN, number_of_em_iterations = 10, top_gates = 1, run_mode = "complex")
 print(head(gates))
