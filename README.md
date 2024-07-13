@@ -260,7 +260,7 @@ print(head(gates))
 gates <- scGATE_logic(data = data, base_GRN = base_GRN, number_of_em_iterations = 10, max_num_regulators = 2, top_gates = 50, run_mode = "simple")
 print(gates)
 
-or you may use,
+# or you may use,
 h_set <- c(1.25, 2.25)
 gates <- scGATE_logic(data = data, base_GRN = base_GRN, h_set = h_set, number_of_em_iterations = 10, max_num_regulators = 2, top_gates = 50, run_mode = "complex")
 print(gates)
