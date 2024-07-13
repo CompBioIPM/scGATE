@@ -18,5 +18,5 @@ data$n_counts<- data$n_counts[ , which(sqrt(apply(data$n_counts,2,var))> 0.20)]
 
 # 5. Run scGATE_logic() function
 # Please note that the likelihood values can be affected by the Louvain clustering results.
-gates        <- scGATE_logic(data = data, top_gates = 1, run_mode = "fast")
+gates        <- scGATE_logic(data = data, top_gates = 1, run_mode = "simple")
 print(head(gates))
