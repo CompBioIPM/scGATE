@@ -371,12 +371,12 @@ data           <- scRNA_seq_preprocessing(data = data, library_size_normalizatio
 ranked_edge_list <-  scGATE_edge(data = data, base_GRN = candidate_tf_target, h_act = 7)
 print(head(ranked_edge_list))
      from     to BF_score
-1    E2F1 MALAT1 13415.34
-2 BHLHE40 MALAT1 13415.34
-3   TFDP1 MALAT1 13415.32
-4    NFE2 MALAT1 13414.98
-5    IRF8 MALAT1 13414.26
-6   RUNX2   PTMA 11592.68
+1    E2F1 MALAT1 13094.06
+2 BHLHE40 MALAT1 13094.05
+3   TFDP1 MALAT1 13093.97
+4    NFE2 MALAT1 13092.80
+5    IRF8 MALAT1 13091.92
+6    E2F1   PTMA 11204.92
 ```
 
 <br>
